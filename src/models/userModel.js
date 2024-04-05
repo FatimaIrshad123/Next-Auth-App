@@ -1,7 +1,7 @@
-import moongoose from "moongoose";
+import mongoose from "mongoose";
 import { Stream } from "stream";
 
-const userSchema = new moongoose.Schema({
+const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required :[ true,'please provide username']
@@ -27,3 +27,7 @@ const userSchema = new moongoose.Schema({
     verifyToken: String,
     verifyTokenExpiry: Date
 })
+
+const User = moongoose.models.users || mongoose.model("users", userSchema)
+
+export default User;
